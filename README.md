@@ -1,4 +1,4 @@
-### Trabajo en clase
+# Trabajo en clase
 
 Repositario dedicado especialmente para el desarrollo de los multiples trabajos desginados por el Trainer Pedro 
 
