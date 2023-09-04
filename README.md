@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+# Trabajo en clase
+>>>>>>> 83d2d5e997ea74df4f54a247af76c37202675822
 
 ## Trabajo en clase
 
