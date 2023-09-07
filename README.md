@@ -13,3 +13,5 @@ Soy José Daniel Vargas Santos. Tengo 23 años y actualmente soy estudiante de P
 
 # TABLA DE CONTENIDO
 
+- [HTML](./HTML/)
+
