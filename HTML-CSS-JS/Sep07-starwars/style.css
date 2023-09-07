@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    background-color: black;
+    display: grid;
+    place-items: center;
+}
+
+section{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.cards{
+    border: 2px solid goldenrod;
+    color: goldenrod;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+h2{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+p{
+    font-size: 15px;
+}
