@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-=======
-# Trabajo en clase
->>>>>>> 83d2d5e997ea74df4f54a247af76c37202675822
 
-## Trabajo en clase
+# Trabajo en clase
 
 Repositario dedicado especialmente para el desarrollo de los multiples trabajos desginados por el Trainer Pedro
 
