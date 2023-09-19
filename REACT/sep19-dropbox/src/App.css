@@ -1,38 +1,221 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200&family=Poppins:wght@500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root{
+    --color-fondo: #1C1818;
+    --color-nav  : #f3f3f3;
+    --color-azul-principal: #0056FE;
+    --color-azul-boton:     #3279FF;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+    height: 100vh;
+    width: 100%;
+    background-color: var(--color-fondo);
+    display: grid;
+    grid-template-areas: 'header'
+                         'main'   ;
+    grid-template-rows: 4% auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+header{
+    grid-area: header;
+    display: flex;
+    background-color: var(--color-nav);
+    width: 100%;
+    height: 15%;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+.titulo-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 20px;
+}
+.titulo-logo img{
+    height: 50px;
+    width: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navegador{
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5px;
+}
+
+.navegador , .navegador ul{
+    display: flex;
+    gap: 25px;
+}
+
+.navegador li a {
+    color: rgb(34, 34, 34);
+}
+
+.segundoLinks{
+    align-items: center;
+    justify-content: center;
+}
+.comenzar{
+    background-color: var(--color-azul-boton);
+    border: none;
+    padding: 10px;
+    color: white;
+}
+
+main{
+    display: grid;
+    place-items: center;
+    margin: 0 20%;
+}
+section{
+    height: 100%;
+    width: 100%;
+}
+
+section div{
+    display: flex;
+}
+.parte1{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 40px 0 10px 0;
+    align-items: center;
+}
+.parte1 p{
+    text-align: center;
+}
+
+.h1{
+    color: #ffff;
+    font-family: Poppins;
+    font-size: 60px;
+}
+.texto{
+    color: #c5c5c5;
+    font-size: 20px;
+}
+
+.encuentra{
+    width: 180px;
+    padding: 20px;
+    background-color: var(--color-azul-principal);
+    border: none;
+    font-weight: bold;
+    margin: 20px;
+}
+
+.encuentra span{
+    padding-left: 15px;
+}
+
+
+.parte1-1{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 40px 0 10px 0;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    
+}
+.parte1-1 p{
+    text-align: center;
+}
+
+.h1-1{
+    color: #ffff;
+    font-family: Poppins;
+    font-size: 20px;
+}
+.texto-1{
+    color: #c5c5c5;
+    font-size: 20px;
+}
+
+.encuentra-1{
+    width: 180px;
+    padding: 20px;
+    background-color: var(--color-azul-principal);
+    border: none;
+    font-weight: bold;
+    margin: 40px 20px 20px 60px;
+}
+
+.encuentra-1 span{
+    padding-left: 15px;
+}
+
+
+.parte2{
+    height: 60%;
+    width: 100%;
+    align-items: center;
+}
+
+.parte2 video{
+    height: auto;
+    width: 100%;
+}
+.hamburguesa{
+    display: none;
+}
+
+.menu{
+    border: none;
+    font-size: 15px;
+}
+
+
+@media (max-width:390px) and (max-height:844px){
+
+    body{
+        width: 390px;
+        height: 844px;
+    }
+    .ocultar{
+        display: none !important;
+    }
+
+    .navegador{
+        display: flex;
+        justify-content: center;
+        margin-left: 80px;
+    }
+
+    .segundoLinks{
+        justify-content: end;
+    }
+
+    .parte1-1 , .hamburguesa{
+        display: inline;
+    }
+
+    main{
+        display: grid;
+        place-items: center;
+        margin: 0 10%;
+    }
+
+    .h1-1{
+        color: #ffff;
+        font-family: Poppins;
+        font-size: 20px;
+    }
+
+
+
+   
 }
