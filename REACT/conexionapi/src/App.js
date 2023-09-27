@@ -1,44 +1,62 @@
-import React, { useState , useEffect } from 'react'
-
+import { useEffect, useState } from 'react'
+import "./App.css"
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [data, setData] = useState(null);
 
-  const fetchApi = async (req, res, next) => {
-    try {
-      const reponse = await fetch('https://dog.ceo/api/breeds/image/random');
-      const data = await reponse.json();
+  const [isLoading, setIsLoading] = useState(null)
+  const [imageUrl, setImageUrl] = useState(null)
+  const [error, setError] = useState(null)
 
-      console.log(data);
-      if(response.ok){
-        setData(data);
-        setIsLoading(false);
-      }else{
-        setError('Error en la peticion')
+  useEffect(() => {
+    if (isLoading) {
+      async function fetchData() {
+        try {
+          const response = await fetch("https://dog.ceo/api/breeds/image/random")
+
+          if (response.ok) {
+            const dog = await response.json()
+            setImageUrl(dog.message)
+            setError(null)
+            setIsLoading(false)
+          }
+          else {
+            setError("no hay perrito")
+          }
+
+        } catch (error) {
+          setError("No hay Posibilidad de hacer la solicitud")
+        }
       }
-    } catch (error) {
-      setError(error)
+      fetchData()
     }
+  }, [isLoading])
+
+  const randomDog = ()=>{
+    setIsLoading(true)
+  }
+  if (isLoading) {
+    return(
+      <div className='App'>
+        <h1>Cargando...</h1>
+      </div>
+    )
+  }
+  if (error) {
+    return(
+      <div>
+        <h1>{error}</h1>
+        <button onClick={randomDog}>try again</button>
+      </div>
+    )
   }
 
-  useEffect(()=>{
-    fetchApi();
-  },[isLoading]);
-
-  return (
-    <>
-      <h1>fetch de los caninoskis</h1>
-      {isLoading ? <p>Estamo mostrando perritos</p> : error ? <h1>Hay un error</h1> :
-      <div className='caja'>
-        <img src={data.message} alt='foto de un canino' />
-        {isLoading && <button onClick={changeImage}>Cambiar de perrito</button>}
-      </div>
-      
-      }
-    </>
+  return(
+    <div className='App'>
+      <img src={imageUrl} alt="imagen de perrito aleatoria"></img>
+      <button onClick={randomDog}>tener mas perritos</button>
+    </div>
   )
 }
+
 
 export default App
