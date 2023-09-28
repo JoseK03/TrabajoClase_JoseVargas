@@ -3,6 +3,7 @@ import express from "express";
 import dotenv from 'dotenv';
 
 
+
 dotenv.config()
 
 const router = express.Router();
@@ -10,7 +11,27 @@ const router = express.Router();
 const nameBase = 'KanbanApi'
 const base = process.env.BASADA;
 
-
+/**
+ * @swagger
+ * /api/tarjetas:
+ *   get:
+ *     summary: Obtener información de las tarjetas
+ *     description: Obtiene la información de todas las tarjetas en la base de datos KanbanApi.
+ *     responses:
+ *       200:
+ *         description: Lista de tarjetas exitosamente obtenida.
+ *         content:
+ *           application/json:
+ *             example:
+ *               - _id: 1
+ *                 titulo: Tarjeta 1
+ *                 descripcion: Descripción de la Tarjeta 1
+ *               - _id: 2
+ *                 titulo: Tarjeta 2
+ *                 descripcion: Descripción de la Tarjeta 2
+ *       500:
+ *         description: Error en el servidor al intentar obtener la lista de tarjetas.
+ */
 router.get('/',async(req,res)=>{
     const client = new MongoClient(base);
     try {
@@ -27,27 +48,47 @@ router.get('/',async(req,res)=>{
 })
 
 
+
+
 /**
  * @swagger
- * componente: 
- *  schemas:
- *      Tarjetas:
- *          type: object
- *          properties:
- *              titulo:
- *                  type: string
- *                  description: The tarjetas name
- *              descripcion:
- *                  type: string
- *                  description: la descripcion de la tarjetas
- *          required:
- *              - titulo
- *              - descripcion
- *          example:
- *              titulo: CAmpus
- *              descripcion: tablero para campus
- *
+ * /api/users:
+ *   get:
+ *     summary: Obtener la lista de usuarios
+ *     description: Obtiene la lista completa de usuarios registrados.
+ *     responses:
+ *       200:
+ *         description: Lista de usuarios exitosamente obtenida.
+ *         content:
+ *           application/json:
+ *             example:
+ *               users: [
+ *                 {
+ *                   id: 1,
+ *                   name: "John Doe",
+ *                   email: "john@example.com"
+ *                 },
+ *                 {
+ *                   id: 2,
+ *                   name: "Jane Smith",
+ *                   email: "jane@example.com"
+ *                 }
+ *               ]
+ *       500:
+ *         description: Error en el servidor.
+ *     parameters:
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *         description: Número de página para la paginación.
+ *       - in: header
+ *         name: Authorization
+ *         schema:
+ *           type: string
+ *         description: Token de autenticación JWT.
  */
+ 
 router.post('/post',async(req,res)=>{
     const client = new MongoClient(base);
     try {
