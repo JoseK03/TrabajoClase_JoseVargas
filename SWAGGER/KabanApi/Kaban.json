@@ -1,0 +1,80 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Api desarrollada para la creacion de tablero Kanban.",
+    "version": "1.0.0",
+    "title": "KabanAPI"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:2001/Kaban/"
+    }
+  ],
+  "paths": {
+    "/tarjetas": {
+      "get": {
+        "summary": "listar Tarjetas Kaban",
+        "description": "Obtiene todas las tarjetas existentes en la base de datos",
+        "responses": {
+          "200": {
+            "description": "Lastia de tarjetas obtenida con éxito",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Tarjeta"
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno en el servidor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Error interno del servidor, por favor, inténtelo de nuevo más tarde"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Tarjeta": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string",
+          "example": "6511ea34b2a505ec6dbd14af"
+        },
+        "titulo": {
+          "type": "string",
+          "example": "Diseño de Interfaz de Usuario"
+        },
+        "descripcion": {
+          "type": "string",
+          "example": "Crear prototipos de la interfaz de usuario para el nuevo proyecto web."
+        },
+        "fecha_vencimiento": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2023-03-10T00:00:00.000Z"
+        },
+        "id_columna": {
+          "type": "string",
+          "example": "6511ea34b2a505ec6dbd14af"
+        },
+        "estado": {
+          "type": "string",
+          "example": "Pendiente"
+        }
+      }
+    }
+  }
+}
